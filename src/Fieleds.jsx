@@ -29,10 +29,10 @@ export default function Fieleds({ fields, setOptFields, otpFields }) {
                 disabled={!fields?.current}
                 onChange={({ target: { value } }) => {
                     (Number(value)) &&
-                        fillOtpFileds(value, fields?.ind)
+                    fillOtpFileds(value, fields?.ind)
                 }}
                 onKeyDown={(e) => {
-                    if (e.key === 'Backspace') {
+                    if (e.code === 'Backspace') {
                         fields.val = '';
                         fields.current = fields.ind === 0;
                         fields.ind !== 0 && otpFields[fields.ind - 1].ref.current.focus();
