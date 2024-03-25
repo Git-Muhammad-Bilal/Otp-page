@@ -32,7 +32,7 @@ export default function Fieleds({ fields, setOptFields, otpFields }) {
                     fillOtpFileds(value, fields?.ind)
                 }}
                 onKeyDown={(e) => {
-                    if (e.code === 'Backspace') {
+                    if (e.key === 'Backspace' || e.key === "Delete") {
                         fields.val = '';
                         fields.current = fields.ind === 0;
                         fields.ind !== 0 && otpFields[fields.ind - 1].ref.current.focus();

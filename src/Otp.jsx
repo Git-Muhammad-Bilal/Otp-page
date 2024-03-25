@@ -42,7 +42,6 @@ export default function otp() {
   useEffect(() => {
     otpFields.find((c, i) => {
       if (c.current) {
-        console.log(c);
         otpFields[i]?.ref.current.focus()
       }
     })
