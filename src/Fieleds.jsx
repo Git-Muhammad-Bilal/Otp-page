@@ -7,7 +7,7 @@ export default function Fieleds({ fields, setOptFields, otpFields }) {
             pre.map((fild) => {
                 if (fild.ind === inpInd) {
                     fild.val = value === '' ? fild.val : value.slice(value.length - 1)
-                }
+                } 
                 if (fild.ind === inpInd + 1) {
                     fild.current = !value ? '' : true
                     return fild
@@ -28,15 +28,15 @@ export default function Fieleds({ fields, setOptFields, otpFields }) {
                 ref={fields?.ref}
                 disabled={!fields?.current}
                 onChange={({ target: { value } }) => {
-                    (Number(value) || value === '') &&
+                    (Number(value)) &&
                         fillOtpFileds(value, fields?.ind)
                 }}
                 onKeyDown={(e) => {
                     if (e.key === 'Backspace') {
                         fields.val = '';
-                        fields.current = fields.ind === 0 ? true : false;
+                        fields.current = fields.ind === 0;
                         fields.ind !== 0 && otpFields[fields.ind - 1].ref.current.focus();
-                        fields.ind !== 0 && setOptFields([...otpFields])
+                        setOptFields([...otpFields])
                     }
                 }}
             />

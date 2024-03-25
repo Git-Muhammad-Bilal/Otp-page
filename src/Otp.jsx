@@ -5,10 +5,11 @@ import HomePage from './HomePage'
 
 
 export default function otp() {
+
   const [otpFields, setOptFields] = useState([
     {
       val: '',
-      ref: useRef(),
+      ref: useRef([]),
       ind: 0,
       current: true
 
@@ -37,13 +38,12 @@ export default function otp() {
   ])
 
   const [otpVerify, setOptVeryfiy] = useState(false)
-  console.log(otpFields, 'optfields');
-  useEffect(() => {
 
+  useEffect(() => {
     otpFields.find((c, i) => {
-      let prevInd = i == 0 ? 0 : i - 1
-      if (otpFields[prevInd]?.val) {
-        otpFields[i + 1]?.ref.current.focus()
+      if (c.current) {
+        console.log(c);
+        otpFields[i]?.ref.current.focus()
       }
     })
 
