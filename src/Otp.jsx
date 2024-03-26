@@ -84,6 +84,7 @@ export default function otp() {
                 otpFields.map((f, i) => {
 
                   return <Fieleds
+                    key={i}
                     fields={f}
                     setOptFields={setOptFields}
                     otpFields={otpFields}
